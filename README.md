@@ -1,4 +1,3 @@
-````markdown
 # Práctica Laravel – Aplicación Web con Autenticación, CRUD y Traducciones
 
 ## Descripción general
