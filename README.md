@@ -47,7 +47,7 @@ Los ejercicios funcionales (estructura Blade, autenticación, CRUD, traducciones
    ```bash
    git clone <url-del-repositorio>
    cd <nombre-del-proyecto>
-````
+``
 
 2. Instalar dependencias PHP:
 
