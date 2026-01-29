@@ -32,5 +32,38 @@
                 {{ $slot }}
             </main>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const titleText = @json(__('ui.delete_confirm_title'));
+                const yesText = @json(__('ui.delete_confirm_yes'));
+                const noText = @json(__('ui.delete_confirm_no'));
+
+                // plantilla con marcador :name (se sustituye en JS)
+                const textTemplate = @json(__('ui.delete_confirm_text', ['name' => ':name']));
+
+                document.querySelectorAll('form.js-delete').forEach((form) => {
+                    form.addEventListener('submit', (e) => {
+                        e.preventDefault();
+
+                        const btn = form.querySelector('button[type="submit"]');
+                        const nombre = btn?.dataset?.nombre ?? '...';
+
+                        const text = textTemplate.replace(':name', nombre);
+
+                        Swal.fire({
+                            title: titleText,
+                            text: text,
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonText: yesText,
+                            cancelButtonText: noText
+                        }).then((result) => {
+                            if (result.isConfirmed) form.submit();
+                        });
+                    });
+                });
+            });
+        </script>
     </body>
 </html>

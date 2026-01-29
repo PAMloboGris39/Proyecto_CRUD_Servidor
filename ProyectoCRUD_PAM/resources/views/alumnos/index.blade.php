@@ -1,13 +1,13 @@
 <x-app-layout>
     <div class="flex items-center justify-between">
         <div>
-            <h1 class="text-2xl font-semibold">Alumnos</h1>
-            <p class="mt-1 text-gray-400">Gestión completa (CRUD) con paginación.</p>
+            <h1 class="text-2xl font-semibold">{{ __('ui.students_title') }}</h1>
+            <p class="mt-1 text-gray-400">{{ __('ui.students_subtitle') }}</p>
         </div>
 
         <a href="{{ route('alumnos.create') }}"
            class="rounded-xl bg-white px-4 py-2 text-gray-900 hover:opacity-90">
-            Nuevo alumno
+            {{ __('ui.new_student') }}
         </a>
     </div>
 
@@ -22,10 +22,10 @@
             <thead class="bg-gray-900/60 text-gray-300">
             <tr>
                 <th class="px-4 py-3 text-left">ID</th>
-                <th class="px-4 py-3 text-left">Nombre</th>
-                <th class="px-4 py-3 text-left">Apellidos</th>
+                <th class="px-4 py-3 text-left">{{ __('ui.name') }}</th>
+                <th class="px-4 py-3 text-left">{{ __('ui.surname') }}</th>
                 <th class="px-4 py-3 text-left">Email</th>
-                <th class="px-4 py-3 text-right">Acciones</th>
+                <th class="px-4 py-3 text-right">{{ __('ui.actions') }}</th>
             </tr>
             </thead>
             <tbody class="divide-y divide-gray-800 bg-gray-950">
@@ -39,20 +39,24 @@
                         <div class="flex justify-end gap-2">
                             <a href="{{ route('alumnos.show', $alumno) }}"
                                class="rounded-lg border border-gray-700 px-3 py-1 hover:bg-gray-900">
-                                Ver
-                            </a>
-                            <a href="{{ route('alumnos.edit', $alumno) }}"
-                               class="rounded-lg border border-gray-700 px-3 py-1 hover:bg-gray-900">
-                                Editar
+                                {{ __('ui.view') }}
                             </a>
 
-                            <form method="POST" action="{{ route('alumnos.destroy', $alumno) }}" class="js-delete">
+                            <a href="{{ route('alumnos.edit', $alumno) }}"
+                               class="rounded-lg border border-gray-700 px-3 py-1 hover:bg-gray-900">
+                                {{ __('ui.edit') }}
+                            </a>
+
+                            <form method="POST"
+                                  action="{{ route('alumnos.destroy', $alumno) }}"
+                                  class="js-delete">
                                 @csrf
                                 @method('DELETE')
+
                                 <button type="submit"
                                         data-nombre="{{ $alumno->nombre }} {{ $alumno->apellidos }}"
                                         class="rounded-lg border border-red-800 px-3 py-1 text-red-200 hover:bg-red-900/30">
-                                    Eliminar
+                                    {{ __('ui.delete') }}
                                 </button>
                             </form>
                         </div>
@@ -60,7 +64,9 @@
                 </tr>
             @empty
                 <tr>
-                    <td class="px-4 py-6 text-gray-400" colspan="5">No hay alumnos todavía.</td>
+                    <td class="px-4 py-6 text-gray-400" colspan="5">
+                        {{ __('ui.no_students') }}
+                    </td>
                 </tr>
             @endforelse
             </tbody>
@@ -71,4 +77,3 @@
         {{ $alumnos->links() }}
     </div>
 </x-app-layout>
-

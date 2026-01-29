@@ -32,7 +32,7 @@ class AlumnoController extends Controller
 
         return redirect()
             ->route('alumnos.index')
-            ->with('success', 'Alumno creado correctamente.');
+            ->with('success', __('ui.success_created'));
     }
 
     public function show(Alumno $alumno): View
@@ -57,7 +57,7 @@ class AlumnoController extends Controller
 
         return redirect()
             ->route('alumnos.index')
-            ->with('success', 'Alumno actualizado correctamente.');
+            ->with('success', __('ui.success_updated'));
     }
 
     public function destroy(Alumno $alumno)
@@ -66,6 +66,6 @@ class AlumnoController extends Controller
 
         return redirect()
             ->route('alumnos.index')
-            ->with('success', 'Alumno eliminado correctamente.');
+            ->with('success', __('ui.success_deleted'));
     }
 }
