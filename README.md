@@ -8,21 +8,6 @@ El desarrollo se realiza de forma progresiva siguiendo los ejercicios definidos 
 
 ---
 
-## Estado actual del proyecto
-
-Hasta el momento, el proyecto se encuentra en una fase inicial con:
-
-- Proyecto Laravel correctamente creado y configurado.
-- Dependencias PHP y frontend instaladas.
-- Entorno de desarrollo operativo.
-- Posibilidad de ejecutar el proyecto:
-  - De forma estándar con Laravel.
-  - Mediante un script que automatiza Docker + Vite + servidor Laravel.
-
-Los ejercicios funcionales (estructura Blade, autenticación, CRUD, traducciones, etc.) **se implementan de forma incremental a partir de este punto**.
-
----
-
 ## Requisitos
 
 ### Opción 1: Ejecución estándar (Laravel)
