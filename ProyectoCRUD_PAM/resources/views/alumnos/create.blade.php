@@ -19,7 +19,7 @@
         </div>
 
         <div>
-            <label class="text-sm text-gray-300">Email</label>
+            <label class="text-sm text-gray-300">{{ __('ui.email') }}</label>
             <input name="email" type="email" value="{{ old('email') }}"
                    class="mt-1 w-full rounded-xl border border-gray-800 bg-gray-950 p-2">
             @error('email') <p class="mt-1 text-sm text-red-300">{{ $message }}</p> @enderror

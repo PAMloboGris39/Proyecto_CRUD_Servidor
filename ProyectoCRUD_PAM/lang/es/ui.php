@@ -1,13 +1,13 @@
 <?php
 
 return [
-    'name' => 'Nombre',
-    'surname' => 'Apellidos',
     'home' => 'Inicio',
     'projects' => 'Proyectos',
     'students' => 'Alumnos',
+
     'welcome_title' => 'Bienvenido',
     'welcome_subtitle' => 'Aplicación web en Laravel: componentes Blade, autenticación, CRUD y traducciones.',
+
     'login' => 'Iniciar sesión',
     'register' => 'Registrarse',
     'logout' => 'Cerrar sesión',
@@ -17,7 +17,12 @@ return [
     'new_student' => 'Nuevo alumno',
     'no_students' => 'No hay alumnos todavía.',
 
+    'id' => 'ID',
+    'name' => 'Nombre',
+    'surname' => 'Apellidos',
+    'email' => 'Email',
     'actions' => 'Acciones',
+
     'view' => 'Ver',
     'edit' => 'Editar',
     'delete' => 'Eliminar',

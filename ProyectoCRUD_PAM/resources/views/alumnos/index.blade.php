@@ -21,13 +21,14 @@
         <table class="w-full text-sm">
             <thead class="bg-gray-900/60 text-gray-300">
             <tr>
-                <th class="px-4 py-3 text-left">ID</th>
+                <th class="px-4 py-3 text-left">{{ __('ui.id') }}</th>
                 <th class="px-4 py-3 text-left">{{ __('ui.name') }}</th>
                 <th class="px-4 py-3 text-left">{{ __('ui.surname') }}</th>
-                <th class="px-4 py-3 text-left">Email</th>
+                <th class="px-4 py-3 text-left">{{ __('ui.email') }}</th>
                 <th class="px-4 py-3 text-right">{{ __('ui.actions') }}</th>
             </tr>
             </thead>
+
             <tbody class="divide-y divide-gray-800 bg-gray-950">
             @forelse ($alumnos as $alumno)
                 <tr>
@@ -47,12 +48,9 @@
                                 {{ __('ui.edit') }}
                             </a>
 
-                            <form method="POST"
-                                  action="{{ route('alumnos.destroy', $alumno) }}"
-                                  class="js-delete">
+                            <form method="POST" action="{{ route('alumnos.destroy', $alumno) }}" class="js-delete">
                                 @csrf
                                 @method('DELETE')
-
                                 <button type="submit"
                                         data-nombre="{{ $alumno->nombre }} {{ $alumno->apellidos }}"
                                         class="rounded-lg border border-red-800 px-3 py-1 text-red-200 hover:bg-red-900/30">
@@ -64,9 +62,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td class="px-4 py-6 text-gray-400" colspan="5">
-                        {{ __('ui.no_students') }}
-                    </td>
+                    <td class="px-4 py-6 text-gray-400" colspan="5">{{ __('ui.no_students') }}</td>
                 </tr>
             @endforelse
             </tbody>

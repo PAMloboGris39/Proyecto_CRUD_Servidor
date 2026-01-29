@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="flex items-center justify-between">
         <div>
-            <h1 class="text-2xl font-semibold">Proyectos</h1>
+            <h1 class="text-2xl font-semibold">{{ __('ui.projects') }}</h1>
             <p class="mt-1 text-gray-400">Listado cargado desde seeders.</p>
         </div>
     </div>
@@ -14,7 +14,7 @@
                     <p class="mt-2 text-sm text-gray-400">{{ $project->description }}</p>
                 @endif
                 <p class="mt-4 text-xs text-gray-500">
-                    Creado: {{ $project->created_at->format('d/m/Y') }}
+                    {{ $project->created_at->format('d/m/Y') }}
                 </p>
             </article>
         @empty
