@@ -19,5 +19,29 @@
 </div>
 
 <x-footer />
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('form.js-delete').forEach((form) => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const btn = form.querySelector('button[type="submit"]');
+                const nombre = btn?.dataset?.nombre ?? 'este alumno';
+
+                Swal.fire({
+                    title: '¿Eliminar?',
+                    text: `Vas a eliminar a ${nombre}. Esta acción no se puede deshacer.`,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Sí, eliminar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) form.submit();
+                });
+            });
+        });
+    });
+</script>
 </body>
 </html>

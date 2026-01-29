@@ -4,7 +4,7 @@
 
     @auth
         <a href="{{ route('projects.index') }}" class="hover:underline">Proyectos</a>
-        <a href="#" class="text-gray-500 cursor-not-allowed">Alumnos (próximamente)</a>
+        <a href="{{ route('alumnos.index') }}" class="hover:underline">Alumnos</a>
     @endauth
 
     @guest

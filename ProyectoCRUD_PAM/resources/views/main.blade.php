@@ -74,5 +74,11 @@
         <a href="{{ route('projects.index') }}" class="mt-4 inline-block rounded-xl border border-gray-700 px-4 py-2 hover:bg-gray-800">
             Ir a Proyectos
         </a>
-    @endauth
+
+        <a href="{{ route('alumnos.index') }}"
+           class="mt-4 inline-block rounded-xl border border-gray-700 px-4 py-2 hover:bg-gray-800">
+            Ir a Alumnos
+        </a>
+
+        @endauth
 </x-app-layout>
