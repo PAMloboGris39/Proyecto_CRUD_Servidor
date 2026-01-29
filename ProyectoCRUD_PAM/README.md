@@ -1,59 +1,365 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+* * * * *
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Descripción del proyecto
+------------------------
 
-## About Laravel
+Este repositorio contiene una aplicación web desarrollada con **Laravel** cuyo objetivo es practicar de forma guiada el funcionamiento de un framework MVC: **rutas → controladores → modelos → vistas**, además de autenticación, CRUD, seeders y traducciones multilenguaje.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+La aplicación implementa:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   **Estructura de interfaz basada en Blade** (componentes y/o layouts).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+-   **Autenticación completa** (registro, login, logout) usando scaffolding estándar de Laravel.
 
-## Learning Laravel
+-   Sección **Proyectos** (listado) con datos iniciales cargados por **seeders**.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+-   Sección **Alumnos** con un **CRUD completo** en tabla, paginación, mensajes de confirmación y confirmación de borrado con **SweetAlert**.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+-   **Traducciones** en **ES/EN/FR** y un **selector de idioma persistente** durante la navegación.
 
-## Laravel Sponsors
+-   Organización y trabajo continuo con **Git** (commits y pushes frecuentes).
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+* * * * *
 
-### Premium Partners
+Requisitos
+----------
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Para ejecutar el proyecto necesitas:
 
-## Contributing
+-   **PHP** compatible con la versión de Laravel del proyecto.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+-   **Composer** (dependencias PHP).
 
-## Code of Conduct
+-   **Node.js + npm** (Vite/Tailwind y assets).
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+-   Base de datos **MySQL/MariaDB** o entorno equivalente (local o Docker).
 
-## Security Vulnerabilities
+-   (Opcional) **Docker + Docker Compose** si usas el arranque automatizado.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+* * * * *
 
-## License
+Instalación
+-----------
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Clona el repositorio y entra al proyecto:
+
+```
+git clone <URL_DEL_REPO>
+cd <CARPETA_DEL_PROYECTO>
+
+```
+
+Instala dependencias PHP:
+
+```
+composer install
+
+```
+
+Instala dependencias frontend:
+
+```
+npm install
+
+```
+
+Crea el `.env`:
+
+```
+cp .env.example .env
+
+```
+
+Genera la clave de la aplicación:
+
+```
+php artisan key:generate
+
+```
+
+Configura la base de datos en `.env` (DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, DB_PASSWORD).
+
+Ejecuta migraciones y seeders:
+
+```
+php artisan migrate --seed
+
+```
+
+Si quieres reiniciar completamente el esquema y los datos (solo desarrollo):
+
+```
+php artisan migrate:fresh --seed
+
+```
+
+* * * * *
+
+Ejecución del proyecto (2 formas)
+---------------------------------
+
+### A) Arranque "normal" (Laravel + Vite)
+
+En una terminal:
+
+```
+php artisan serve
+
+```
+
+En otra terminal:
+
+```
+npm run dev
+
+```
+
+La aplicación quedará disponible en:
+
+-   `http://localhost:8000`
+
+* * * * *
+
+### B) Arranque automatizado (script con Docker + Vite + Laravel)
+
+Este repositorio incluye un script `local` en `package.json`:
+
+```
+"local": "docker compose up -d && concurrently \"npm run dev\" \"php artisan serve\""
+
+```
+
+Para ejecutarlo:
+
+```
+npm run local
+
+```
+
+Este comando:
+
+1.  Levanta el stack Docker (por ejemplo, MySQL).
+
+2.  Lanza Vite (`npm run dev`).
+
+3.  Lanza el servidor Laravel (`php artisan serve`) en paralelo.
+
+* * * * *
+
+Estructura del proyecto y explicación por carpetas (MVC y framework)
+--------------------------------------------------------------------
+
+A continuación se describe el papel de cada carpeta principal y cómo encaja en el modelo MVC:
+
+### `routes/` (Routing)
+
+Contiene las rutas HTTP de la aplicación. Es el punto de entrada: cuando el navegador solicita una URL, Laravel busca aquí la ruta correspondiente y decide qué controlador/acción se ejecuta.
+
+-   `routes/web.php`: rutas de la web (vistas, CRUD, enlaces del nav, selector de idioma).
+
+### `app/Http/Controllers/` (Controladores -- "C" de MVC)
+
+Los controladores gestionan el flujo:
+
+-   reciben la petición,
+
+-   ejecutan lógica (validaciones, permisos),
+
+-   consultan modelos si hace falta,
+
+-   devuelven una vista con datos.
+
+Ejemplos implementados:
+
+-   `HomeController`: devuelve la vista principal.
+
+-   `AlumnoController`: CRUD completo de alumnos.
+
+-   `ProjectController`: listado de proyectos.
+
+### `app/Models/` (Modelos -- "M" de MVC)
+
+Los modelos representan tablas y permiten operar con datos usando Eloquent:
+
+-   consultar (`Alumno::paginate()`),
+
+-   crear (`Alumno::create()`),
+
+-   actualizar (`$alumno->update()`),
+
+-   borrar (`$alumno->delete()`).
+
+Ejemplos implementados:
+
+-   `Alumno`
+
+-   `Project`
+
+### `resources/views/` (Vistas -- "V" de MVC)
+
+Contiene las plantillas Blade que renderizan HTML y muestran datos.
+
+-   `resources/views/alumnos/`: vistas del CRUD (index, create, edit, show).
+
+-   `resources/views/projects/`: listado de proyectos.
+
+-   `resources/views/layouts/`: layouts de Breeze (app y navigation).
+
+-   `resources/views/main.blade.php`: página principal con contenido condicionado a `@guest/@auth`.
+
+### `database/migrations/` (Esquema de base de datos)
+
+Define la estructura de tablas (versionada y reproducible en cualquier máquina).\
+Ejemplos:
+
+-   tabla `alumnos`
+
+-   tabla `projects`
+
+-   tablas de auth/sesiones si están configuradas.
+
+### `database/seeders/` (Datos iniciales)
+
+Carga datos de arranque, especialmente para la sección Proyectos (requisito del enunciado).\
+Ejemplo:
+
+-   `ProjectSeeder` para precargar proyectos.
+
+### `lang/` (Traducciones)
+
+Define diccionarios por idioma:
+
+-   `lang/es/ui.php`
+
+-   `lang/en/ui.php`
+
+-   `lang/fr/ui.php`
+
+Se utilizan desde vistas/controladores con `__('ui.clave')`.
+
+### `app/Http/Middleware/` (Middleware de idioma)
+
+Se implementó un middleware `SetLocale` para:
+
+-   leer el idioma seleccionado desde sesión,
+
+-   aplicar `app()->setLocale(...)` en cada request,
+
+-   mantener el idioma al navegar.
+
+* * * * *
+
+Funcionalidades implementadas (resumen por ejercicios)
+------------------------------------------------------
+
+### Ejercicio 1 --- Estructura con Blade
+
+-   Layout base y componentes/estructura visual.
+
+-   Separación de interfaz en piezas reutilizables.
+
+### Ejercicio 2 --- Página principal adaptada a autenticación
+
+-   `main` muestra dos estados:
+
+    -   `@guest`: hero + botones de login/register.
+
+    -   `@auth`: saludo, logout y accesos por "cards".
+
+### Ejercicio 3 --- Autenticación (registro/login/logout)
+
+-   Instalación de scaffolding de autenticación.
+
+-   Rutas y vistas de auth disponibles.
+
+-   Interfaz adaptativa según el estado del usuario.
+
+### Ejercicio 4 --- Proyectos + seeders + acceso desde navegación
+
+-   Modelo y migración de `Project`.
+
+-   Seeder que precarga proyectos.
+
+-   Controlador + vista de listado.
+
+-   Ruta protegida por `auth` y acceso desde navegación.
+
+### Ejercicio 5 --- Alumnos (CRUD completo)
+
+-   Modelo + migración de `Alumno`.
+
+-   Controlador resource CRUD con validación.
+
+-   Vistas CRUD:
+
+    -   tabla paginada en index,
+
+    -   create/edit/show,
+
+    -   mensajes flash tras crear/editar/eliminar,
+
+    -   siempre Cancelar/Volver.
+
+-   Confirmación de borrado con SweetAlert.
+
+### Ejercicio 6 --- Traducciones ES/EN/FR + selector persistente
+
+-   Archivos de idioma (`lang/es`, `lang/en`, `lang/fr`).
+
+-   Middleware `SetLocale` para mantener idioma.
+
+-   Ruta `/lang/{locale}` para cambiar idioma.
+
+-   Selector ES/EN/FR en la navegación.
+
+-   Textos del CRUD y navegación usando `__('ui...')`.
+
+-   SweetAlert traducido.
+
+* * * * *
+
+Comandos útiles
+---------------
+
+-   Migrar BD:
+
+```
+php artisan migrate
+
+```
+
+-   Reset + seed:
+
+```
+php artisan migrate:fresh --seed
+
+```
+
+-   Limpiar cachés:
+
+```
+php artisan optimize:clear
+
+```
+
+-   Ver rutas:
+
+```
+php artisan route:list
+
+```
+
+* * * * *
+
+Control de versiones
+--------------------
+
+El proyecto se desarrolla con Git de forma continua:
+
+-   commits frecuentes y descriptivos,
+
+-   pushes periódicos para reflejar el trabajo de cada sesión,
+
+-   historial útil para evidenciar evolución del proyecto.
+
+* * * * *
