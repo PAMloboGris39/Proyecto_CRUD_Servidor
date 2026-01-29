@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'name' => 'Nombre',
+    'surname' => 'Apellidos',
     'home' => 'Home',
     'projects' => 'Projects',
     'students' => 'Students',
