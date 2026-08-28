@@ -143,6 +143,7 @@
       <path value="$PROJECT_DIR$/ProyectoCRUD_PAM/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/ProyectoCRUD_PAM/vendor/phpstan/phpdoc-parser" />
       <path value="$PROJECT_DIR$/ProyectoCRUD_PAM/vendor/fidry/cpu-core-counter" />
+      <path value="$PROJECT_DIR$/ProyectoCRUD_PAM/vendor/laravel/breeze" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2">

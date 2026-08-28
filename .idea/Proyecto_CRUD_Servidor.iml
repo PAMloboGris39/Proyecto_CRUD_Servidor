@@ -132,6 +132,7 @@
       <excludeFolder url="file://$MODULE_DIR$/ProyectoCRUD_PAM/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/ProyectoCRUD_PAM/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/ProyectoCRUD_PAM/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/ProyectoCRUD_PAM/vendor/laravel/breeze" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
